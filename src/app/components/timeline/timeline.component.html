@@ -1,0 +1,22 @@
+<div class="events-container">
+  <div class="timeline-item" fxLayout="row" *ngFor="let event of items; index as i" [ngClass]="{'active': i === activeIndex}">
+    <div class="timeline-icon">
+      <md-icon>home</md-icon>
+    </div>
+    <div class="timeline-item-line" [ngClass]="{'first': i === 0, 'last': i === items.length - 1}"></div>
+    <div class="marker"></div>
+
+    <div class="timeline-item-content" fxLayout="row">
+      <div class="main">
+        <h3>Formulier invullen</h3>
+        <span>Lawyer</span>
+        <div class="description">
+          Firm24 maakt de offerte op, aan de hand van uw omschrijving
+        </div>
+      </div>
+      <div class="date">
+        <span>{{'2017-09-21T10:19:08+00:00' | date}}</span>
+      </div>
+    </div>
+  </div>
+</div>

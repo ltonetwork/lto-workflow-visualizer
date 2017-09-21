@@ -1,0 +1,87 @@
+$lineBorderRadius: 14px;
+.timeline-item {
+  padding: 20px 16px;
+  position: relative;
+  color: rgba(0,0,0,0.54);
+  min-height: 60px;
+
+  &:hover {
+    .marker {
+      background: rgba(255,255,255,0.9);
+    }
+    background:rgba(0, 0, 0, 0.01);
+  }
+
+  &.active {
+    background:rgba(0, 0, 0, 0.1);
+  }
+}
+
+.timeline-icon {
+  position: absolute;
+
+}
+
+.timeline-item-line {
+  height: 100%;
+  left: 57px;
+  position: absolute;
+  top: 0;
+  width: 14px;
+  z-index: 1;
+  background: #3f51b5;
+
+  &.first {
+    top: 23px;
+    border-top-left-radius: $lineBorderRadius;
+    border-top-right-radius: $lineBorderRadius;
+  }
+
+  &.last {
+    height: 40px;
+    border-bottom-left-radius: $lineBorderRadius;
+    border-bottom-right-radius: $lineBorderRadius;
+  }
+}
+.marker {
+  position: absolute;
+  background: rgba(255,255,255,0.54);
+  width: 10px;
+  height: 10px;
+  left: 59px;
+  top: 25px;
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.segment-divider {
+  background: rgba(255,255,255,0.54);
+  border-radius: 5px;
+  height: 10px;
+}
+
+.timeline-item-content {
+  margin-left: 80px;
+  position: relative;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 1px;
+}
+
+md-card-content {
+  margin-left: -24px;
+  margin-right: -24px;
+}
+
+.description {
+  padding: 16px;
+}
+
+.date {
+  text-align: right;
+  width: 90px;
+  font-size: 12px;
+}
