@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public doughnutChartLabels: string[] = ['Completion'];
+  public doughnutChartData: number[] = [70, 30];
+  public doughnutChartType = 'doughnut';
 
   showSource = false;
 

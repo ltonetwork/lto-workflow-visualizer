@@ -36,3 +36,13 @@ $backdropHeight: 300px;
 .content > * {
   width: 100%;
 }
+
+.chart-widget {
+  md-card-content {
+    display: flex;
+    .chart-container {
+      display: block;
+      max-width: 500px;
+    }
+  }
+}

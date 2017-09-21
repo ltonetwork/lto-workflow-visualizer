@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     TimelineComponent
   ],
   imports: [
-    BrowserModule, FlexLayoutModule,
+    BrowserModule, FlexLayoutModule, ChartsModule,
     MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule,
     AppRoutingModule
   ],
