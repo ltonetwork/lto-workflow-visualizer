@@ -1,0 +1,22 @@
+$backdropHeight: 300px;
+
+:host {
+  padding-top: $backdropHeight - 100;
+  display: block;
+}
+
+md-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $backdropHeight;
+  background:#3f51b5;
+  z-index: 0;
+}
