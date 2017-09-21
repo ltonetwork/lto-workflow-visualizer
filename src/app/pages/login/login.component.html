@@ -1,0 +1,29 @@
+<div class="content" fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
+  <md-card>
+    <md-card-title>Login</md-card-title>
+    <md-card-content>
+      <form novalidate [formGroup]="form">
+        <div fxLayout="column">
+          <md-input-container fxFlex="1 1 auto">
+            <input formControlName="email" type="text" mdInput placeholder="Email">
+          </md-input-container>
+          <md-input-container fxFlex="1 1 auto">
+            <input formControlName="password" type="password" mdInput placeholder="Password">
+          </md-input-container>
+        </div>
+      </form>
+    </md-card-content>
+    <md-card-actions>
+      <button
+        i18n="@@loginButton"
+        type="submit"
+        md-raised-button
+        color="primary"
+        [disabled]="form.valid !== true || form.disabled"
+        (click)="login()"
+      >Login</button>
+      <a [routerLink]="['../', 'register']" md-button>Register</a>
+      <a [routerLink]="['../', 'restore']" md-button>Forgot Password</a>
+    </md-card-actions>
+  </md-card>
+</div>

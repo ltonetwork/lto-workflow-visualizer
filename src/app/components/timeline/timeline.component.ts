@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Process } from '@classes/process';
 
 @Component({
   selector: 'app-timeline',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent implements OnInit {
+
+  @Input() process$: Process;
 
   items: any[] = [];
   activeIndex = 4;

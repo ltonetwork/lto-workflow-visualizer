@@ -19,9 +19,10 @@
     ],
     "paths": {
       "@app/*": ["app/*"],
+      "@modules/*": ["app/modules/*"],
+      "@classes/*": ["app/classes/*"],
       "@components/*": ["app/components/*"],
-      "@shared/*": ["app/shared/*"],
-      "@modules/*": ["app/modules/*"]
+      "@services/*": ["app/services/*"]
     }
   }
 }

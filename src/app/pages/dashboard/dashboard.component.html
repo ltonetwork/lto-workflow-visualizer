@@ -31,7 +31,7 @@
       <md-slide-toggle color="accent" (change)="toggleTimelineSource($event)">Source</md-slide-toggle>
     </md-card-title>
     <md-card-content>
-      <app-timeline *ngIf="!showSource"></app-timeline>
+      <app-timeline *ngIf="!showSource" [process$]="process$"></app-timeline>
       <div *ngIf="showSource" class="source">
         Some source goes here
       </div>

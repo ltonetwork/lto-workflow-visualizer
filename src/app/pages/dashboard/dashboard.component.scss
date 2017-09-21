@@ -1,14 +1,17 @@
 $backdropHeight: 300px;
 
 :host {
-  padding-top: $backdropHeight - 100;
+
   display: block;
 }
 
 .application-navbar {
-  position: fixed;
-  top: 0;
+  // position: fixed;
+  // top: 0;
+  // z-index: 1;
+  position: relative;
   z-index: 1;
+  margin-bottom: $backdropHeight - 134;
 }
 
 .background {

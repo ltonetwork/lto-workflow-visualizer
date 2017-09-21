@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { ProcessesProviderService } from '@services/processes-provider';
+import { Process } from '@classes/process';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +15,14 @@ export class DashboardComponent implements OnInit {
   public doughnutChartType = 'doughnut';
 
   showSource = false;
+  process$: Observable<Process>;
 
-  constructor() { }
+  constructor(
+    public processesProvider: ProcessesProviderService
+  ) { }
 
   ngOnInit() {
+    this.process$ = this.processesProvider.get('59c3ee516f19782c243f9962');
   }
 
   toggleTimelineSource(event: any) {
