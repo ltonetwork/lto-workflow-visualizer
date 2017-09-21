@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/switchMap';
 
 import { ProcessesProviderService } from '@services/processes-provider';
 import { Process } from '@classes/process';
@@ -18,11 +20,14 @@ export class DashboardComponent implements OnInit {
   process$: Observable<Process>;
 
   constructor(
-    public processesProvider: ProcessesProviderService
+    public processesProvider: ProcessesProviderService,
+    public route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.process$ = this.processesProvider.get('59c3ee516f19782c243f9962');
+    this.process$ = this.route.params.switchMap((params) => {
+      return this.processesProvider.get(params['id']);
+    });
   }
 
   toggleTimelineSource(event: any) {

@@ -29,7 +29,7 @@ export class Process {
 
     // Next actions
     if (data['next']) {
-      actions = actions.concat(data['previous'].map((event: any) => new ProcessAction(event)));
+      actions = actions.concat(data['next'].map((event: any) => new ProcessAction(event)));
     }
 
     this.actions = actions;
