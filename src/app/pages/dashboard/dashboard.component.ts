@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  showSource = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleTimelineSource(event: any) {
+    this.showSource = event['checked'];
+  }
 }

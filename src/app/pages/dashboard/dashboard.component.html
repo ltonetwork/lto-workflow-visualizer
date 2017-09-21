@@ -1,10 +1,23 @@
 <div class="background"></div>
-<md-toolbar color="primary">Blockathon</md-toolbar>
-<div class="content">
-  <md-card class="timeline-card">
-    <md-card-title>Timeline</md-card-title>
+<md-toolbar color="primary" class="application-navbar">Blockathon</md-toolbar>
+<div class="content" fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+  <div fxLayout="column" fxLayoutGap="16px" fxFlex="1 1 auto">
+    <md-card>
+      <md-card-title>Current task</md-card-title>
+    </md-card>
+  </div>
+
+  <md-card class="tabbed-card" fxFlex="1 1 auto">
+    <md-card-title>
+      Timeline
+      <span fxFlex="1 1 auto"></span>
+      <md-slide-toggle color="accent" (change)="toggleTimelineSource($event)">Source</md-slide-toggle>
+    </md-card-title>
     <md-card-content>
-      <app-timeline></app-timeline>
+      <app-timeline *ngIf="!showSource"></app-timeline>
+      <div *ngIf="showSource" class="source">
+        Some source goes here
+      </div>
     </md-card-content>
   </md-card>
 </div>

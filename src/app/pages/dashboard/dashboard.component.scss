@@ -5,7 +5,7 @@ $backdropHeight: 300px;
   display: block;
 }
 
-md-toolbar {
+.application-navbar {
   position: fixed;
   top: 0;
   z-index: 1;
@@ -21,6 +21,18 @@ md-toolbar {
   z-index: 0;
 }
 
-.timeline-card {
-  width: 50%;
+.tabbed-card {
+  md-card-content {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
+  .source {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.content > * {
+  width: 100%;
 }
