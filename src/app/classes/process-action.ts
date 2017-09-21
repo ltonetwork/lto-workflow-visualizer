@@ -21,6 +21,7 @@ export class ProcessAction {
   response_date: string;
   activation_date?: string;
   actor: Actor;
+  description?: string;
   icon: string;
 
   constructor(data: any) {

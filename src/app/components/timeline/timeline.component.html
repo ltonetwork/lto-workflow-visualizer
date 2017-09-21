@@ -10,12 +10,12 @@
     </div>
     <div class="timeline-item-line" [ngClass]="{'first': isFirst, 'last': isLast, 'finished': action.finished}"></div>
 
-    <div class="timeline-item-content" fxLayout="row">
-      <div class="main">
+    <div class="timeline-item-content" fxLayout="row" fxFlex="1 1 auto">
+      <div class="main" fxFlex="1 1 auto">
         <h3>{{action.title}}</h3>
         <span>{{action.actor.title}}</span>
-        <div class="description">
-          Firm24 maakt de offerte op, aan de hand van uw omschrijving
+        <div class="description" *ngIf="action.description">
+          {{action.description}}
         </div>
       </div>
       <div class="date">

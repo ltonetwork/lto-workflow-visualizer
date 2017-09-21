@@ -61,17 +61,6 @@ $lineBorderRadius: 14px;
     background: #64B5F6;
   }
 }
-.marker {
-  position: absolute;
-  background: rgba(255,255,255,0.54);
-  width: 10px;
-  height: 10px;
-  left: 59px;
-  top: 25px;
-  border-radius: 50%;
-  z-index: 2;
-  transition: all 0.3s;
-}
 
 .segment-divider {
   background: rgba(255,255,255,0.54);
@@ -101,5 +90,6 @@ md-card-content {
 .date {
   text-align: right;
   width: 90px;
+  min-width: 90px;
   font-size: 12px;
 }
