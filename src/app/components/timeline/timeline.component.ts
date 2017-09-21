@@ -9,7 +9,7 @@ import { Process } from '@classes/process';
 })
 export class TimelineComponent implements OnInit {
 
-  @Input() process$: Process;
+  @Input() process: Process;
 
   items: any[] = [];
   activeIndex = 4;
@@ -22,5 +22,4 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

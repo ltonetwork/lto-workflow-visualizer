@@ -1,14 +1,14 @@
-<div class="events-container">
+<div class="events-container" *ngIf="process">
   <div class="timeline-item"
     fxLayout="row"
-    *ngFor="let action of (process$ | async)?.actions; first as isFirst; last as isLast"
+    *ngFor="let action of process.actions; first as isFirst; last as isLast; index as i"
     [ngClass]="{'active': action.active}"
+    [ngStyle]="{'z-index': process.actions.length - i}"
   >
     <div class="timeline-icon">
-      <md-icon>home</md-icon>
+      <md-icon>{{action.icon}}</md-icon>
     </div>
-    <div class="timeline-item-line" [ngClass]="{'first': isFirst, 'last': isLast}"></div>
-    <div class="marker"></div>
+    <div class="timeline-item-line" [ngClass]="{'first': isFirst, 'last': isLast, 'finished': action.finished}"></div>
 
     <div class="timeline-item-content" fxLayout="row">
       <div class="main">

@@ -20,13 +20,26 @@ $lineBorderRadius: 14px;
 }
 
 .timeline-item-line {
-  height: 100%;
   left: 57px;
   position: absolute;
   top: 0;
+  bottom: -32px;
   width: 14px;
   z-index: 1;
   background: #3f51b5;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,.8);
+    width: 10px;
+    height: 10px;
+    bottom: -5px;
+    left: 2px;
+    border-radius: 50%;
+    z-index: 2;
+  }
 
   &.first {
     top: 23px;
@@ -38,6 +51,14 @@ $lineBorderRadius: 14px;
     height: 40px;
     border-bottom-left-radius: $lineBorderRadius;
     border-bottom-right-radius: $lineBorderRadius;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &.finished {
+    background: #64B5F6;
   }
 }
 .marker {
