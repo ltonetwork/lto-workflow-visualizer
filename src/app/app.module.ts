@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule } from '@angular/material';
+import { MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,7 +35,7 @@ import { ChartCardComponent } from './components/chart-card/chart-card.component
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCFDbSjZTlSv95RN8QK0w6b97NKFCNgNQY'
     }),
-    MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule,
+    MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule,
     AuthModule,
     AppRoutingModule
   ],

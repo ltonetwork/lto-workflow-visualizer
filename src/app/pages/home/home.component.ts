@@ -19,4 +19,8 @@ export class HomeComponent implements OnInit {
     thesaas.constellation();
   }
 
+  showLoginModal() {
+    console.log('Here comes modal');
+  }
+
 }
