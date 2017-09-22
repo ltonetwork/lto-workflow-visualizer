@@ -1,40 +1,44 @@
 <div class="background"></div>
 <md-toolbar color="primary" class="application-navbar">Blockathon</md-toolbar>
-<div class="content" fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
-  <div fxLayout="column" fxLayoutGap="16px" fxFlex="1 1 auto">
-    <md-card>
-      <md-card-title>Current task</md-card-title>
-      <md-card-subtitle>Something</md-card-subtitle>
-      <md-card-content>
-        Description of current task. Maybe something else.
-      </md-card-content>
-    </md-card>
-    <md-card class="chart-widget">
-        <md-card-title>Fancy widget</md-card-title>
+<div class="content container" fxLayout="column" fxLayout.xs="column" fxLayoutGap="16px">
+  <div fxLayout="row"  fxLayoutGap="16px" class="container">
+      <div fxLayout="column" fxLayoutGap="16px" fxFlex="1 1 auto">
+      <app-location-card></app-location-card>
+      <md-card>
+        <md-card-title>Current task</md-card-title>
         <md-card-subtitle>Something</md-card-subtitle>
         <md-card-content>
-          <div class="chart-container" fxFlex="1 1 auto">
-              <canvas baseChart
-              [data]="doughnutChartData"
-              [labels]="doughnutChartLabels"
-              [chartType]="doughnutChartType"
-            ></canvas>
-          </div>
+          Description of current task. Maybe something else.
         </md-card-content>
       </md-card>
+      <md-card class="chart-widget">
+          <md-card-title>Fancy widget</md-card-title>
+          <md-card-subtitle>Something</md-card-subtitle>
+          <md-card-content>
+            <div class="chart-container" fxFlex="1 1 auto">
+                <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+              ></canvas>
+            </div>
+          </md-card-content>
+        </md-card>
+    </div>
+
+    <md-card class="tabbed-card" fxFlex="1 1 auto">
+      <md-card-title>
+        Timeline
+        <span fxFlex="1 1 auto"></span>
+        <md-slide-toggle color="accent" (change)="toggleTimelineSource($event)">Source</md-slide-toggle>
+      </md-card-title>
+      <md-card-content>
+        <app-timeline *ngIf="!showSource" [process]="process$ | async"></app-timeline>
+        <div *ngIf="showSource" class="source">
+          Some source goes here
+        </div>
+      </md-card-content>
+    </md-card>
   </div>
 
-  <md-card class="tabbed-card" fxFlex="1 1 auto">
-    <md-card-title>
-      Timeline
-      <span fxFlex="1 1 auto"></span>
-      <md-slide-toggle color="accent" (change)="toggleTimelineSource($event)">Source</md-slide-toggle>
-    </md-card-title>
-    <md-card-content>
-      <app-timeline *ngIf="!showSource" [process]="process$ | async"></app-timeline>
-      <div *ngIf="showSource" class="source">
-        Some source goes here
-      </div>
-    </md-card-content>
-  </md-card>
 </div>

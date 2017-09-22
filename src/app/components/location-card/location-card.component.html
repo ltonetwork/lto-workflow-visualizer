@@ -1,0 +1,29 @@
+<md-card>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+  <md-card-content>
+    <h3>Car information</h3>
+    <p>Some description about car from officer which repossesed it. Or maybe some additional info which appered later.</p>
+    <div class="information-row" fxLayout="row">
+        <div class="information-item">
+          <div class="title">Merk</div>
+          <div class="information">BMW</div>
+        </div>
+        <div class="information-item">
+          <div class="title">Mileage</div>
+          <div class="information">47521km</div>
+        </div>
+    </div>
+    <div class="information-row" fxLayout="row">
+        <div class="information-item">
+          <div class="title">Fuel</div>
+          <div class="information">Benzine</div>
+        </div>
+        <div class="information-item">
+          <div class="title">Estimated price</div>
+          <div class="information">16000eur</div>
+        </div>
+    </div>
+  </md-card-content>
+</md-card>
