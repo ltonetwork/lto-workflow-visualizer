@@ -31,10 +31,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.processesProvider.load('59c3ecb56f197830243f9961').take(1).subscribe(p => this.process = p);
-    // this.process$ = this.processesProvider.process$;
-    // if (!this.process$) {
+    // if (!this.processesProvider.process$) {
     //   this.router.navigate(['']);
+    //   return;
     // }
+    // this.processesProvider.process$.take(1).subscribe(p => this.process = p);
   }
 
   toggleTimelineSource(event: any) {

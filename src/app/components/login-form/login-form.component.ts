@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MdDialogRef, MdSnackBar } from '@angular/material';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ProcessesProviderService } from '@services/processes-provider/processes-provider.service';
 
@@ -16,7 +16,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     public dialogRef: MdDialogRef<LoginFormComponent>,
-    public processesProvider: ProcessesProviderService
+    public processesProvider: ProcessesProviderService,
+    public snackbar: MdSnackBar
   ) { }
 
   ngOnInit() {
@@ -41,7 +42,13 @@ export class LoginFormComponent implements OnInit {
   submit() {
     this.form.disable();
     this.processesProvider.load('59c3ecb56f197830243f9961').take(1).subscribe((process) => {
+      this.snackbar.open('Logged in', 'DISMISS', {
+        duration: 1500
+      });
+
       this.dialogRef.close(true);
+    }, (err) => {
+      this.form.enable();
     });
   }
 

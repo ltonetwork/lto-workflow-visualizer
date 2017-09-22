@@ -35,10 +35,6 @@ export class HomeComponent implements OnInit {
 
     const loginInfo = await dialogRef.afterClosed().toPromise();
     if (loginInfo) {
-      this.snackbar.open('Logged in', 'DISMISS', {
-        duration: 1500
-      });
-
       this.router.navigate(['dashboard']);
     }
     console.log(loginInfo);
