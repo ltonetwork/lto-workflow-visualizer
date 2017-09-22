@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog, MdDialogRef } from '@angular/material';
+
+import { LoginFormComponent } from '@components/login-form/login-form.component';
 
 declare var thesaas: any;
 
@@ -13,14 +16,20 @@ declare var thesaas: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
     thesaas.constellation();
   }
 
-  showLoginModal() {
-    console.log('Here comes modal');
+  async showLoginModal() {
+    const dialogRef = this.dialog.open(LoginFormComponent, {
+      width: '300px'
+    });
+
+    const loginInfo = await dialogRef.afterClosed().toPromise();
+
+    console.log(loginInfo);
   }
 
 }

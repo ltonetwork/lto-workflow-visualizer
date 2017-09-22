@@ -1,0 +1,11 @@
+<div>
+  <form novalidate [formGroup]="form">
+    <md-form-field>
+      <input mdInput placeholder="Process ID" formControlName="process" type="text">
+    </md-form-field>
+    <div><input placeholder="Key filename" formControlName="key" type="file"></div>
+    <div fxLayout="row" fxLayoutAlign="end">
+      <button md-button color="primary" (click)="submit()" [disabled]="form.invalid">Login</button>
+    </div>
+  </form>
+</div>
