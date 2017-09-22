@@ -23,15 +23,28 @@
         <md-slide-toggle color="accent" (change)="toggleTimelineSource($event)">Source</md-slide-toggle>
       </md-card-title>
       <md-card-content>
-        <app-timeline *ngIf="!showSource" [process]="process$ | async"></app-timeline>
-        <div *ngIf="showSource" class="source">
+        <app-timeline *ngIf="!sourceVisible" [process]="process$ | async"></app-timeline>
+        <div *ngIf="sourceVisible" class="source">
           Some source goes here
         </div>
       </md-card-content>
     </md-card>
   </div>
 </div>
-<button md-fab (click)="navigate()">
+<button md-fab (click)="showSource()">
   <md-icon>description</md-icon>
 </button>
-<div class="transition-ripple" [ngClass]="{'full': showFull}"></div>
+<div class="transition-ripple" [ngClass]="{'full': sourceVisible}"></div>
+<div class="source-view" [ngClass]="{'visible': sourceVisible}">
+  <md-toolbar color="accent" class="mat-elevation-z6">
+    <button md-icon-button (click)="hideSource()">
+      <md-icon>close</md-icon>
+    </button>
+  </md-toolbar>
+  <div class="content">
+    <md-card>
+      <md-card-title>Source</md-card-title>
+      <md-card-content>Source view</md-card-content>
+    </md-card>
+  </div>
+</div>
