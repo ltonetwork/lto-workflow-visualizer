@@ -3,8 +3,18 @@
     <md-form-field>
       <input mdInput placeholder="Process ID" formControlName="process" type="text">
     </md-form-field>
-    <div><input placeholder="Key filename" type="file" (change)="fileSelected($event)"></div>
-    <div fxLayout="row" fxLayoutAlign="end">
+    <div>
+      <label for="key">
+        <ng-container>
+          <div class="choose-file-label" fxLayout="row" fxLayoutAlign="start center">
+            <md-icon>vpn_key</md-icon>
+            {{selectedFilename || 'Choose key file...'}}
+          </div>
+        </ng-container>
+        <input placeholder="Key filename" name="key" id="key" type="file" (change)="fileSelected($event)">
+      </label>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end" class="actions">
       <button md-button color="primary" (click)="submit()" [disabled]="form.invalid">Login</button>
     </div>
   </form>

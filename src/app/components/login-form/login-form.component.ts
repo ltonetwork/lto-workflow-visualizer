@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
 
   processIdControl: FormControl;
   keyControl: FormControl;
+  selectedFilename = '';
 
   constructor(
     public dialogRef: MdDialogRef<LoginFormComponent>,
@@ -31,6 +32,7 @@ export class LoginFormComponent implements OnInit {
 
   fileSelected(event: any) {
     const fileObj = event.target.files[0];
+    this.selectedFilename = fileObj['name'];
     const reader = new FileReader();
     reader.onload = (file: any) => {
       this.keyControl.setValue(file.target.result);
