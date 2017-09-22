@@ -1,5 +1,27 @@
 import { ProcessAction } from './process-action';
 
+interface IProcess {
+  id: string;
+  scenario: string;
+  title: string;
+  subject: string;
+  state: 'running';
+  end_date?: string;
+  actions: ProcessAction[];
+  item: {
+    title: string;
+    description: string;
+    location: {
+      lat: number;
+      lng: number;
+    }
+    information: Array<{
+      tite: string;
+      description: string;
+    }>;
+  };
+}
+
 export class Process {
   id: string;
   scenario: string;

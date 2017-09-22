@@ -20,7 +20,6 @@
       <md-card-title>
         Timeline
         <span fxFlex="1 1 auto"></span>
-        <md-slide-toggle color="accent" (change)="toggleTimelineSource($event)">Source</md-slide-toggle>
       </md-card-title>
       <md-card-content>
         <app-timeline *ngIf="!sourceVisible" [process]="process$ | async"></app-timeline>
