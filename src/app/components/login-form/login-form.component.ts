@@ -15,6 +15,8 @@ export class LoginFormComponent implements OnInit {
   keyControl: FormControl;
   selectedFilename = '';
 
+  loading = false;
+
   constructor(
     public dialogRef: MdDialogRef<LoginFormComponent>,
     public processesProvider: ProcessesProviderService,
@@ -42,6 +44,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   submit() {
+    this.loading = true;
     this.form.disable();
     this.processesProvider.load('59c3ecb56f197830243f9961').take(1).subscribe((process) => {
       this.snackbar.open('Logged in', 'DISMISS', {
@@ -50,6 +53,7 @@ export class LoginFormComponent implements OnInit {
 
       this.dialogRef.close(true);
     }, (err) => {
+      this.loading = false;
       this.form.enable();
     });
   }

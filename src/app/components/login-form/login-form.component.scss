@@ -1,3 +1,8 @@
+:host {
+  position: relative;
+  display: block;
+}
+
 md-form-field {
   width: 100%;
 }
@@ -22,4 +27,13 @@ input[type="file"] {
 }
 .actions {
   margin-top: 16px;
+}
+
+.backdrop {
+  position: absolute;
+  left: -50px;
+  right: -50px;
+  top: -50px;
+  bottom: -50px;
+  background: rgba(0, 0, 0, 0.4);
 }
