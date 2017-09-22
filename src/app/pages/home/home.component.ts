@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+
 
 import { LoginFormComponent } from '@components/login-form/login-form.component';
 
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public dialog: MdDialog,
-    public router: Router
+    public router: Router,
+    public snackbar: MdSnackBar
   ) { }
 
   ngOnInit() {
@@ -32,7 +34,13 @@ export class HomeComponent implements OnInit {
     });
 
     const loginInfo = await dialogRef.afterClosed().toPromise();
-    this.router.navigate(['dashboard']);
+    if (loginInfo) {
+      this.snackbar.open('Logged in', 'DISMISS', {
+        duration: 1500
+      });
+
+      this.router.navigate(['dashboard']);
+    }
     console.log(loginInfo);
   }
 

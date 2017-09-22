@@ -3,7 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule,
-  MdDialogModule, MdInputModule
+  MdDialogModule, MdInputModule, MdSnackBarModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -41,7 +41,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
       apiKey: 'AIzaSyCFDbSjZTlSv95RN8QK0w6b97NKFCNgNQY'
     }),
     MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule,
-    MdDialogModule, MdInputModule,
+    MdDialogModule, MdInputModule, MdSnackBarModule,
     AuthModule,
     AppRoutingModule
   ],

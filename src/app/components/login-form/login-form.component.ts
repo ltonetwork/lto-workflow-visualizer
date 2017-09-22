@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.processIdControl = new FormControl('', [Validators.required]);
-    this.keyControl = new FormControl();
+    this.keyControl = new FormControl('', [Validators.required]);
     this.form = new FormGroup({
       process: this.processIdControl,
       key: this.keyControl
@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
     const fileObj = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (file: any) => {
-      console.log(file.target['result']);
+      this.keyControl.setValue(file.target.result);
     };
 
     reader.readAsText(fileObj);
@@ -36,7 +36,8 @@ export class LoginFormComponent implements OnInit {
 
   submit() {
     this.dialogRef.close({
-      processId: this.processIdControl.value
+      processId: this.processIdControl.value,
+      key: this.keyControl.value
     });
   }
 
