@@ -63,3 +63,19 @@ md-card {
     }
   }
 }
+.transition-ripple {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #ff4081;
+  transition: all cubic-bezier(0.4, 0.0, 1, 1) 0.3s;
+  z-index: -1;
+
+  &.full {
+    z-index: 10000;
+    transform: scale(100);
+  }
+}

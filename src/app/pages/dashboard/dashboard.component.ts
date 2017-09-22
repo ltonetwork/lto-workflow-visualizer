@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   public doughnutChartData: number[] = [70, 30];
   public doughnutChartType = 'doughnut';
 
+  showFull = false;
+
   showSource = false;
   process$: Observable<Process>;
 
@@ -32,5 +34,9 @@ export class DashboardComponent implements OnInit {
 
   toggleTimelineSource(event: any) {
     this.showSource = event['checked'];
+  }
+
+  navigate() {
+    this.showFull = true;
   }
 }
