@@ -15,7 +15,7 @@ export class ChartCardComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels: string[] = ['Have to pay', 'Estimated price', 'something'];
+  public barChartLabels: string[] = ['Boete', 'Opbrengst verkoop', 'Saldo'];
   public barChartType = 'bar';
   public barChartLegend = false;
 
