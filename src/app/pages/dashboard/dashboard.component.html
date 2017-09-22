@@ -6,7 +6,7 @@
   <div fxLayout="row" fxLayoutGap="16px" class="container" fxLayout.xs="column">
     <div fxLayout="column" fxLayoutGap="16px" fxFlex="1 1 auto">
       <app-location-card fxFlex="1 1 auto"></app-location-card>
-      <app-chart-card fxFlex="1 1 auto"></app-chart-card>
+      <app-chart-card *ngIf="process" fxFlex="1 1 auto" [finance]="process.finance"></app-chart-card>
     </div>
 
     <md-card class="tabbed-card" fxFlex="1 1 auto">
@@ -15,7 +15,7 @@
         <span fxFlex="1 1 auto"></span>
       </md-card-title>
       <md-card-content>
-        <app-timeline *ngIf="!sourceVisible" [process]="process$ | async"></app-timeline>
+        <app-timeline *ngIf="!sourceVisible" [process]="process"></app-timeline>
         <div *ngIf="sourceVisible" class="source">
           Some source goes here
         </div>

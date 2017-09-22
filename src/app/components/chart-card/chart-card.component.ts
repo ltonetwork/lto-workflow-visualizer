@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { Finance } from '@app/classes';
 
 @Component({
   selector: 'app-chart-card',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart-card.component.scss']
 })
 export class ChartCardComponent implements OnInit {
+
+  @Input() public finance: Finance;
 
   colors = [{
     backgroundColor: ['#FF7360', '#6FC8CE', '#B9E8E0', '#FFFCC4', '#B9E8E0']
@@ -19,9 +24,10 @@ export class ChartCardComponent implements OnInit {
   public barChartType = 'bar';
   public barChartLegend = false;
 
-  public barChartData: any[] = [
-    { data: [60000, 40000, -10080, 81, 56, 55, 40] }
-  ];
+  // public barChartData: any[] = [
+  //   { data: [60000, 40000, -10080, 81, 56, 55, 40] }
+  // ];
+  public barChartData: any[];
 
   // events
   public chartClicked(e: any): void {
@@ -36,6 +42,11 @@ export class ChartCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.finance) {
+      return;
+    }
+
+    this.barChartData = [{ data: [this.finance.fine, this.finance.sellPrice, this.finance.saldo] }];
   }
 
   onSelect(event: any) {

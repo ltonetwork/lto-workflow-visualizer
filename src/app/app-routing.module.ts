@@ -31,7 +31,7 @@ const routes: Routes = [{
     }, {
       path: '',
       pathMatch: 'full',
-      redirectTo: 'dashboard/59c3ecb56f197830243f9961'
+      redirectTo: 'home'
     }
   ]
 }];

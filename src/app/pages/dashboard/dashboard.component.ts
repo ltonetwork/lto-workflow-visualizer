@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {trigger, state, animate, style, transition} from '@angular/animations';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
@@ -21,13 +22,19 @@ export class DashboardComponent implements OnInit {
 
   sourceVisible = false;
   process$: Observable<Process>;
+  process: Process;
 
   constructor(
-    public processesProvider: ProcessesProviderService
+    public processesProvider: ProcessesProviderService,
+    public router: Router
   ) { }
 
   ngOnInit() {
-    this.process$ = this.processesProvider.process$;
+    this.processesProvider.load('59c3ecb56f197830243f9961').take(1).subscribe(p => this.process = p);
+    // this.process$ = this.processesProvider.process$;
+    // if (!this.process$) {
+    //   this.router.navigate(['']);
+    // }
   }
 
   toggleTimelineSource(event: any) {

@@ -1,5 +1,6 @@
 import { ProcessAction } from './process-action';
 import { Item } from './item';
+import { Finance } from './finance';
 
 interface IProcess {
   id: string;
@@ -37,7 +38,7 @@ export class Process {
   end_date?: string;
   actions: ProcessAction[];
   item: Item;
-  finance: { fine: number; sellPrice: number; saldo: number; };
+  finance: Finance;
 
   constructor(data: any) {
     Object.assign(this, data);
@@ -65,5 +66,6 @@ export class Process {
     this.actions = actions;
 
     this.item = new Item(data['item']);
+    this.finance = new Finance(data['finance']);
   }
 }
