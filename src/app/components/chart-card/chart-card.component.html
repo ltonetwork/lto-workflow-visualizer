@@ -1,0 +1,15 @@
+<md-card>
+  <md-card-title>Charts widget</md-card-title>
+  <md-card-content>
+    <canvas baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [colors]="colors"
+      [chartType]="barChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+    </canvas>
+  </md-card-content>
+</md-card>

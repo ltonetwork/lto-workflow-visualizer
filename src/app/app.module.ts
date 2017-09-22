@@ -17,6 +17,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 
 import { ProcessesProviderService } from './services';
 import { LocationCardComponent } from './components/location-card/location-card.component';
+import { ChartCardComponent } from './components/chart-card/chart-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LocationCardComponent } from './components/location-card/location-card.
     DashboardComponent,
     HomeComponent,
     TimelineComponent,
-    LocationCardComponent
+    LocationCardComponent,
+    ChartCardComponent
   ],
   imports: [
     BrowserAnimationsModule,
