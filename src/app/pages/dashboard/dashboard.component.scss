@@ -94,6 +94,10 @@ md-card {
     z-index: 100;
   }
 
+  pre {
+    overflow: auto;
+  }
+
   transition: all 0.3s;
   opacity: 0;
   &.visible {

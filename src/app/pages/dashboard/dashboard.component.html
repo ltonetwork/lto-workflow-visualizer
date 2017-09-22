@@ -15,10 +15,7 @@
         <span fxFlex="1 1 auto"></span>
       </md-card-title>
       <md-card-content>
-        <app-timeline *ngIf="!sourceVisible" [process]="process"></app-timeline>
-        <div *ngIf="sourceVisible" class="source">
-          Some source goes here
-        </div>
+        <app-timeline [process]="process"></app-timeline>
       </md-card-content>
     </md-card>
   </div>
