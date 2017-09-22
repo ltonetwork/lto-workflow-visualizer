@@ -17,6 +17,10 @@ const routes: Routes = [{
       path: 'dashboard/:id',
       canActivate: [AuthGuard],
       component: DashboardComponent
+    }, {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: 'dashboard/59c3ecb56f197830243f9961'
     }
   ]
 }];

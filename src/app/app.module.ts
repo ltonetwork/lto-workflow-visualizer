@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -23,6 +24,7 @@ import { ProcessesProviderService } from './services';
     TimelineComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule, FlexLayoutModule, ChartsModule,
     HttpClientModule,
     MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule,
