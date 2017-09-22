@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { ProcessesProviderService } from '@services/processes-provider/processes-provider.service';
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +14,10 @@ export class LoginFormComponent implements OnInit {
   processIdControl: FormControl;
   keyControl: FormControl;
 
-  constructor(public dialogRef: MdDialogRef<LoginFormComponent>) { }
+  constructor(
+    public dialogRef: MdDialogRef<LoginFormComponent>,
+    public processesProvider: ProcessesProviderService
+  ) { }
 
   ngOnInit() {
     this.processIdControl = new FormControl('', [Validators.required]);
@@ -35,9 +39,9 @@ export class LoginFormComponent implements OnInit {
   }
 
   submit() {
-    this.dialogRef.close({
-      processId: this.processIdControl.value,
-      key: this.keyControl.value
+    this.form.disable();
+    this.processesProvider.load('59c3ecb56f197830243f9961').take(1).subscribe((process) => {
+      this.dialogRef.close(true);
     });
   }
 

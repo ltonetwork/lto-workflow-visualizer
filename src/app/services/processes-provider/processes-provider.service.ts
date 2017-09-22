@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
@@ -8,10 +9,15 @@ import { Process } from '@classes/process';
 
 @Injectable()
 export class ProcessesProviderService {
+  public process$: BehaviorSubject<Process>;
 
   constructor(private http: SecureHttpClientService) { }
 
-  get(id: string): Observable<Process> {
+  load(id: string): Observable<Process> {
+    if (this.process$) {
+      return this.process$;
+    }
+
     return this.http.get('http://app.docarama.com/service/flow/processes/' + id)
     .map((data: any) => {
       // Augment data with necessary info
@@ -45,7 +51,10 @@ export class ProcessesProviderService {
 
       return data;
     })
-    .map((data: any) => new Process(data));
+    .map((data: any) => new Process(data))
+    .do((process) => {
+      this.process$ = new BehaviorSubject<Process>(process);
+    });
   }
 
 }

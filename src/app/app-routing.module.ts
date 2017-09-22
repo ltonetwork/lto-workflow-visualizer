@@ -6,6 +6,14 @@ import { SessionResolveGuard, AuthGuard } from '@modules/auth';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 
+/*
+{
+      path: 'dashboard',
+      pathMatch: 'full',
+      redirectTo: 'dashboard/59c3ecb56f197830243f9961'
+    }
+    */
+
 const routes: Routes = [{
   path: '',
   canActivate: [SessionResolveGuard],
@@ -17,13 +25,9 @@ const routes: Routes = [{
       path: 'home',
       component: HomeComponent
     }, {
-      path: 'dashboard/:id',
+      path: 'dashboard',
       canActivate: [AuthGuard],
       component: DashboardComponent
-    }, {
-      path: 'dashboard',
-      pathMatch: 'full',
-      redirectTo: 'dashboard/59c3ecb56f197830243f9961'
     }, {
       path: '',
       pathMatch: 'full',
