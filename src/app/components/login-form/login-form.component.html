@@ -3,7 +3,7 @@
     <md-form-field>
       <input mdInput placeholder="Process ID" formControlName="process" type="text">
     </md-form-field>
-    <div><input placeholder="Key filename" formControlName="key" type="file"></div>
+    <div><input placeholder="Key filename" formControlName="key" type="file" (change)="fileSelected($event)"></div>
     <div fxLayout="row" fxLayoutAlign="end">
       <button md-button color="primary" (click)="submit()" [disabled]="form.invalid">Login</button>
     </div>

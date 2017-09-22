@@ -24,6 +24,16 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
+  fileSelected(event: any) {
+    const fileObj = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (file: any) => {
+      console.log(file.target['result']);
+    };
+
+    reader.readAsText(fileObj);
+  }
+
   submit() {
     this.dialogRef.close({
       processId: this.processIdControl.value
