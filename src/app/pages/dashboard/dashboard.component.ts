@@ -43,9 +43,11 @@ export class DashboardComponent implements OnInit {
 
   showSource() {
     this.sourceVisible = true;
+    document.body.style['overflow'] = 'hidden';
   }
 
   hideSource() {
     this.sourceVisible = false;
+    document.body.style['overflow'] = '';
   }
 }

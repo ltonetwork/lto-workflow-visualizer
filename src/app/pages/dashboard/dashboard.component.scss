@@ -85,6 +85,14 @@ md-card {
 
 .source-view {
   position: fixed;
+  overflow: auto;
+  padding-top: 70px;
+
+  md-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
 
   transition: all 0.3s;
   opacity: 0;

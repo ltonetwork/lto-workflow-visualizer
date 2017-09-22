@@ -40,8 +40,11 @@ export class Process {
   item: Item;
   finance: Finance;
 
+  source: any;
+
   constructor(data: any) {
     Object.assign(this, data);
+    this.source = data;
 
     // Build actions
     let actions: ProcessAction[] = [];

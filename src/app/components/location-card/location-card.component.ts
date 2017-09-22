@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Item } from '@app/classes';
 
 @Component({
   selector: 'app-location-card',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./location-card.component.scss']
 })
 export class LocationCardComponent implements OnInit {
-  lat = 51.678418;
-  lng = 7.809007;
+
+  @Input() public item: Item;
 
   constructor() { }
 
