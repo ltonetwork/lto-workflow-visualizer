@@ -5,6 +5,12 @@ $backdropHeight: 300px;
   display: block;
 }
 
+[md-fab] {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}
+
 .application-navbar {
   // position: fixed;
   // top: 0;
