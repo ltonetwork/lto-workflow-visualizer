@@ -14,9 +14,16 @@ const routes: Routes = [{
       path: 'login',
       loadChildren: 'app/pages/login/login.module#LoginModule'
     }, {
+      path: 'home',
+      component: HomeComponent
+    }, {
       path: 'dashboard/:id',
       canActivate: [AuthGuard],
       component: DashboardComponent
+    }, {
+      path: 'dashboard',
+      pathMatch: 'full',
+      redirectTo: 'dashboard/59c3ecb56f197830243f9961'
     }, {
       path: '',
       pathMatch: 'full',

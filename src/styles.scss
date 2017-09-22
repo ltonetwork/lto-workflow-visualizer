@@ -6,7 +6,10 @@ body {
   margin: 0;
   padding: 0;
   background: #f2f2f2;
-  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif !important;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif !important;
 }
 
 html,
@@ -49,3 +52,4 @@ md-sidenav-container {
   margin: 0 auto 0 auto;
   box-sizing: border-box;
 }
+

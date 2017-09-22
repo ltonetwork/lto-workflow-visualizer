@@ -12,6 +12,11 @@ $backdropHeight: 300px;
   position: relative;
   z-index: 1;
   margin-bottom: $backdropHeight - 134;
+
+  .brand {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .background {
