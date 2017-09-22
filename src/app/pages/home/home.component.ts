@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
 
 import { LoginFormComponent } from '@components/login-form/login-form.component';
 
@@ -16,7 +17,10 @@ declare var thesaas: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public dialog: MdDialog) { }
+  constructor(
+    public dialog: MdDialog,
+    public router: Router
+  ) { }
 
   ngOnInit() {
     thesaas.constellation();
@@ -28,7 +32,7 @@ export class HomeComponent implements OnInit {
     });
 
     const loginInfo = await dialogRef.afterClosed().toPromise();
-
+    this.router.navigate(['dashboard']);
     console.log(loginInfo);
   }
 
