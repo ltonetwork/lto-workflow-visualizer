@@ -13,8 +13,8 @@ const randomIcons = [
 ];
 
 export class ProcessAction {
-  finished: boolean;
-  active: boolean;
+  finished = true;
+  active = false;
   title: string;
   definition: string;
   key: string;
@@ -23,10 +23,13 @@ export class ProcessAction {
   actor: Actor;
   description?: string;
   icon: string;
+  actor_id: string;
 
   constructor(data: any) {
     Object.assign(this, data);
-    this.actor = new Actor(data['actor']);
+    // Take actors from process
+    this.actor_id = data['actor'];
+    this.title = data['action'];
 
     const rnd = Math.floor(Math.random() * randomIcons.length);
     this.icon = randomIcons[rnd];

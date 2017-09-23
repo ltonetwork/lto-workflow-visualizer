@@ -7,6 +7,66 @@ import 'rxjs/add/operator/map';
 import { SecureHttpClientService } from '@modules/auth';
 import { Process } from '@classes/process';
 
+const DUMMY = {
+  'actors': {
+    'politie': {
+      'title': 'Politie'
+    },
+    'forensisch_opsporingsteam': {
+      'title': 'Forensisch opsporingsteam'
+    },
+    'officier_van_justitie': {
+      'title': 'Officier van Justitie'
+    },
+    'beslag_coordinator': {
+      'title': 'Beslag coördinator (OM)'
+    },
+    'bewaarder': {
+      'title': 'Bewaarder'
+    },
+    'digi': {
+      'title': 'Digi'
+    },
+    'beslagene': {
+      'title': 'Beslagene',
+      'naam': 'Arnold Daniels',
+      'geboorte_datum': '1981-08-22'
+    },
+    'ketenbeslaghuis': {
+      'title': 'Ketenbeslaghuis'
+    }
+  },
+  'events': [
+    {
+      'action': 'registratie',
+      'response': 'ok',
+      'actor': 'politie',
+      'data': {
+        'beslagene': {
+          'naam': 'Arnold Daniels',
+          'geboorte_datum': '1981-08-22'
+        },
+        'object': {
+          'type': 'auto',
+          'kenteken': '40-XPH-4',
+          'merk': 'Suziki',
+          'kleur': 'wit',
+          'foto': 'http://image.autotrader.nl/media/135317866-medium.jpg'
+        }
+      },
+      'version': '20170923'
+    }
+  ],
+  'object': {
+    'type': 'auto',
+    'kenteken': '40-XPH-4',
+    'merk': 'Suziki',
+    'kleur': 'wit',
+    'foto': 'http://image.autotrader.nl/media/135317866-medium.jpg'
+  },
+  'current': {}
+};
+
 @Injectable()
 export class ProcessesProviderService {
   public process$: BehaviorSubject<Process>;
@@ -18,47 +78,15 @@ export class ProcessesProviderService {
       return this.process$;
     }
 
-    return this.http.get('http://app.docarama.com/service/flow/processes/' + id)
-    .map((data: any) => {
-      // Augment data with necessary info
-      if (!data['item']) {
-        data['item'] = {
-          title: 'Car',
-          description: 'Some description about car from officer which repossesed it. Or maybe some additional info which appered later.',
-          location: {
-            lat: 51.678418,
-            lng: 7.809007
-          },
-          information: [{
-            title: 'Merk',
-            description: 'BWM'
-          }, {
-            title: 'Mileage',
-            description: '47521km'
-          }, {
-            title: 'Fuel',
-            description: 'Benzine'
-          }, {
-            title: 'Estimated price',
-            description: '16000eur'
-          }]
-        };
-      }
-
-      if (!data['finance']) {
-        data['finance'] = {
-          fine: 15000,
-          sellPrice: 16000,
-          saldo: -1000
-        };
-      }
-
-      return data;
-    })
-    .map((data: any) => new Process(data))
-    .do((process) => {
-      this.process$ = new BehaviorSubject<Process>(process);
-    });
+    // return this.http.get('http://app.docarama.com/service/flow/processes/' + id)
+    return Observable.of(DUMMY)
+      .map((data: any) => {
+        return data;
+      })
+      .map((data: any) => new Process(data))
+      .do((process) => {
+        this.process$ = new BehaviorSubject<Process>(process);
+      });
   }
 
 }

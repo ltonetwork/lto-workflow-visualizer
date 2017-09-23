@@ -1,6 +1,7 @@
 import { ProcessAction } from './process-action';
 import { Item } from './item';
 import { Finance } from './finance';
+import { Actor } from './actor';
 
 interface IProcess {
   id: string;
@@ -45,30 +46,18 @@ export class Process {
   constructor(data: any) {
     Object.assign(this, data);
     this.source = data;
-
     // Build actions
-    let actions: ProcessAction[] = [];
-    if (data['previous']) {
-      actions = actions.concat(data['previous'].map((event: any) => {
-        const e = new ProcessAction(event);
-        e.finished = true;
-        return e;
-      }));
-    }
+    this.actions = data['events'].map((e: any) => new ProcessAction(e));
+    // Now go though actions and set actors
+    this.actions.forEach((action) => {
+      action.actor = new Actor(data['actors'][action.actor_id]);
+    });
 
-    // Current action
-    const currentEvent = new ProcessAction(data['current']);
-    currentEvent.active = true;
-    actions.push(currentEvent);
-
-    // Next actions
-    if (data['next']) {
-      actions = actions.concat(data['next'].map((event: any) => new ProcessAction(event)));
-    }
-
-    this.actions = actions;
-
-    this.item = new Item(data['item']);
-    this.finance = new Finance(data['finance']);
+    this.item = new Item(data['object']);
+    this.finance = new Finance({
+      fine: 15000,
+      sellPrice: 16000,
+      saldo: -1000
+    });
   }
 }
