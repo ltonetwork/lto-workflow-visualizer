@@ -59,5 +59,11 @@ export class Process {
       sellPrice: 16000,
       saldo: -1000
     });
+
+    // Set manually item location
+    this.item.location = {
+      lat: parseFloat(data['locatie']['lat']),
+      lng: parseFloat(data['locatie']['lng'])
+    };
   }
 }
