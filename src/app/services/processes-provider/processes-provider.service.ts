@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 
 import { SecureHttpClientService } from '@modules/auth';
 import { Process } from '@classes/process';
+
+import { ProjectionJsService } from '../projection-js/projection-js.service';
 import { DUMMY } from './dummy';
 
 
@@ -13,14 +15,14 @@ import { DUMMY } from './dummy';
 export class ProcessesProviderService {
   public process$: BehaviorSubject<Process>;
 
-  constructor(private http: SecureHttpClientService) { }
+  constructor(private projection: ProjectionJsService) { }
 
-  load(id: string): Observable<Process> {
+  load(id: string, key: string): Observable<Process> {
     if (this.process$) {
       return this.process$;
     }
 
-    return Observable.of(DUMMY)
+    return this.projection.loadProjection(id, key)
       .map((data: any) => {
         return data;
       })

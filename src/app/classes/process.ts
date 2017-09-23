@@ -53,6 +53,12 @@ export class Process {
       action.actor = new Actor(data['actors'][action.actor_id]);
     });
 
+    // Load current action
+    const currentAction = new ProcessAction(data['current']);
+    currentAction.active = true;
+    this.actions.push(currentAction);
+
+
     this.item = new Item(data['object']);
     this.finance = new Finance({
       fine: 15000,

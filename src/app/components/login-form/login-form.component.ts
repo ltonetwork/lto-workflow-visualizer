@@ -3,6 +3,8 @@ import { MdDialogRef, MdSnackBar } from '@angular/material';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ProcessesProviderService } from '@services/processes-provider/processes-provider.service';
 
+import { ProjectionJsService } from '@services/projection-js/projection-js.service';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -20,12 +22,13 @@ export class LoginFormComponent implements OnInit {
   constructor(
     public dialogRef: MdDialogRef<LoginFormComponent>,
     public processesProvider: ProcessesProviderService,
-    public snackbar: MdSnackBar
+    public snackbar: MdSnackBar,
+    public projection: ProjectionJsService
   ) { }
 
   ngOnInit() {
-    this.processIdControl = new FormControl('', [Validators.required]);
-    this.keyControl = new FormControl('', [Validators.required]);
+    this.processIdControl = new FormControl('0x926eb19ecdf4a81116b8d27debd24044ffcae686', [Validators.required]);
+    this.keyControl = new FormControl('my-test-key', [Validators.required]);
     this.form = new FormGroup({
       process: this.processIdControl,
       key: this.keyControl
@@ -46,7 +49,8 @@ export class LoginFormComponent implements OnInit {
   submit() {
     this.loading = true;
     this.form.disable();
-    this.processesProvider.load('59c3ecb56f197830243f9961').take(1).subscribe((process) => {
+
+    this.processesProvider.load(this.processIdControl.value, this.keyControl.value).take(1).subscribe((process) => {
       this.snackbar.open('Logged in', 'DISMISS', {
         duration: 1500
       });
