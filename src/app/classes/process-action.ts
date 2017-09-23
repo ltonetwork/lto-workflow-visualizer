@@ -29,7 +29,7 @@ export class ProcessAction {
     Object.assign(this, data);
     // Take actors from process
     this.actor_id = data['actor'];
-    this.title = data['action'];
+    this.response_date = data['timestamp'];
 
     const rnd = Math.floor(Math.random() * randomIcons.length);
     this.icon = randomIcons[rnd];

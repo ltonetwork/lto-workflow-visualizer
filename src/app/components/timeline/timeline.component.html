@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="date">
-        <span *ngIf="action.finished">{{action.response_date | date}}</span>
+        <span *ngIf="action.finished">{{action.response_date | date: 'd MMM HH:mm'}}</span>
         <span *ngIf="action.active">{{action.activation_date | date}}</span>
         <span *ngIf="!action.finished && !action.active">No due date</span>
       </div>

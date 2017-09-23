@@ -10,7 +10,8 @@ import { Process } from '@classes/process';
 const DUMMY = {
   'actors': {
     'politie': {
-      'title': 'Politie'
+      'title': 'Politie',
+      'id': 'politie'
     },
     'forensisch_opsporingsteam': {
       'title': 'Forensisch opsporingsteam'
@@ -21,8 +22,12 @@ const DUMMY = {
     'beslag_coordinator': {
       'title': 'Beslag coördinator (OM)'
     },
+    'transport': {
+      'title': 'Transport',
+      'id': 'transport'
+    },
     'bewaarder': {
-      'title': 'Bewaarder'
+      'title': 'Bewaarder domeinen'
     },
     'digi': {
       'title': 'Digi'
@@ -33,14 +38,14 @@ const DUMMY = {
       'geboorte_datum': '1981-08-22'
     },
     'ketenbeslaghuis': {
-      'title': 'Ketenbeslaghuis'
+      'title': 'Ketenbeslaghuis',
+      'id': 'ketenbeslaghuis'
     }
   },
   'events': [
     {
       'action': 'registratie',
       'response': 'ok',
-      'actor': 'politie',
       'data': {
         'beslagene': {
           'naam': 'Arnold Daniels',
@@ -54,7 +59,38 @@ const DUMMY = {
           'foto': 'http://image.autotrader.nl/media/135317866-medium.jpg'
         }
       },
-      'version': '20170923'
+      'timestamp': '2017-09-22T14:51:00+0200',
+      'version': '20170923',
+      'actor': 'politie',
+      'title': 'Registratie van beslag'
+    },
+    {
+      'action': 'transport',
+      'response': 'ok',
+      'data': {
+        'locatie': {
+          'lat': '52.0661263',
+          'lng': '4.356196'
+        }
+      },
+      'timestamp': '2017-09-22T15:19:00+0200',
+      'version': '20170923',
+      'actor': 'transport',
+      'title': 'De transport heeft het object is ontvangen'
+    },
+    {
+      'action': 'ketenbeslaghuis_ontvangst',
+      'response': 'ok',
+      'data': {
+        'locatie': {
+          'lat': '52.0463866',
+          'lng': '4.2509162'
+        }
+      },
+      'timestamp': '2017-09-22T15:45:00+0200',
+      'version': '20170923',
+      'actor': 'ketenbeslaghuis',
+      'title': 'Het ketenhuis heeft het object ontvangen'
     }
   ],
   'object': {
@@ -63,6 +99,10 @@ const DUMMY = {
     'merk': 'Suziki',
     'kleur': 'wit',
     'foto': 'http://image.autotrader.nl/media/135317866-medium.jpg'
+  },
+  'locatie': {
+    'lat': '52.0463866',
+    'lng': '4.2509162'
   },
   'current': {}
 };
