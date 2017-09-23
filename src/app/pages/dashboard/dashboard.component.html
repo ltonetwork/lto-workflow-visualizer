@@ -5,8 +5,8 @@
 <div class="content container" fxLayout="column" fxLayout.xs="column" fxLayoutGap="16px" *ngIf="process">
   <div fxLayout="row" fxLayoutGap="16px" class="container" fxLayout.xs="column">
     <div fxLayout="column" fxLayoutGap="16px" fxFlex="1 1 auto">
-      <app-location-card fxFlex="1 1 auto" [item]="process.item"></app-location-card>
-      <app-chart-card fxFlex="1 1 auto" [finance]="process.finance"></app-chart-card>
+      <app-location-card [item]="process.item"></app-location-card>
+      <app-chart-card [finance]="process.finance"></app-chart-card>
     </div>
 
     <md-card class="tabbed-card" fxFlex="1 1 auto">
