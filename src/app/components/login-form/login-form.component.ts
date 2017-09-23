@@ -59,6 +59,9 @@ export class LoginFormComponent implements OnInit {
     }, (err) => {
       this.loading = false;
       this.form.enable();
+      this.snackbar.open('Process not found', 'DISMISS', {
+        duration: 3000
+      });
     });
   }
 
