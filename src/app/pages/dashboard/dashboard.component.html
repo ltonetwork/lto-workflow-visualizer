@@ -9,16 +9,18 @@
       <app-location-history-card [item]="process.item"></app-location-history-card>
       <app-chart-card [finance]="process.finance"></app-chart-card>
     </div>
+    <div fxLayout="column" fxLayoutGap="16px">
+      <md-card class="tabbed-card">
+        <md-card-title>
+          Timeline
+          <span fxFlex="1 1 auto"></span>
+        </md-card-title>
+        <md-card-content>
+          <app-timeline [process]="process"></app-timeline>
+        </md-card-content>
+      </md-card>
+    </div>
 
-    <md-card class="tabbed-card" fxFlex="1 1 auto">
-      <md-card-title>
-        Timeline
-        <span fxFlex="1 1 auto"></span>
-      </md-card-title>
-      <md-card-content>
-        <app-timeline [process]="process"></app-timeline>
-      </md-card-content>
-    </md-card>
   </div>
 </div>
 <button md-fab (click)="showSource()">
