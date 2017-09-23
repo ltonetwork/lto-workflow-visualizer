@@ -44,9 +44,9 @@ export class ProcessesProviderService {
       };
 
       data['finance'] = {
-        fine: 60000,
-        sellPrice: 50000,
-        saldo: 10000
+        fine: 15000,
+        sellPrice: 16000,
+        saldo: -1000
       };
 
       return data;
