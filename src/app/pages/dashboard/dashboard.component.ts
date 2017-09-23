@@ -7,6 +7,8 @@ import 'rxjs/add/operator/switchMap';
 import { ProcessesProviderService } from '@services/processes-provider';
 import { Process } from '@classes/process';
 
+import { ProjectionJsService } from '@services/projection-js/projection-js.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,14 +22,21 @@ export class DashboardComponent implements OnInit {
   public doughnutChartData: number[] = [70, 30];
   public doughnutChartType = 'doughnut';
 
+  public eventsSource$: Observable<any>;
+  public scenarioSource$: Observable<any>;
+
   sourceVisible = false;
   process$: Observable<Process>;
   process: Process;
 
   constructor(
     public processesProvider: ProcessesProviderService,
-    public router: Router
-  ) { }
+    public router: Router,
+    public projection: ProjectionJsService
+  ) {
+    this.eventsSource$ = this.projection.getEvents();
+    this.scenarioSource$ = this.projection.getScenario();
+  }
 
   ngOnInit() {
     if (!this.processesProvider.process$) {

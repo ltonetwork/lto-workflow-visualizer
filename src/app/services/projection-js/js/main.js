@@ -15,10 +15,10 @@ const events = [
             },
             "object": {
                 "type": "auto",
-                "kenteken": "TK-ZX-72",
+                "kenteken": "NZ-527-X",
                 "merk": "BMW",
-                "kleur": "zwart",
-                "foto": "http://image.autotrader.nl/media/135317866-medium.jpg"
+                "kleur": "wit",
+                "foto": "https://i.ebayimg.com/00/s/MzAwWDQwMA==/z/VuEAAOSwWf9Zn~K9/$_86.JPG"
             }
         },
         "timestamp": "2017-09-22T14:51:00+0200",
@@ -371,42 +371,61 @@ const scenarioVersion = {
     }
 };
 
-function getProject(processAddress, myPrivateKey) {
+var main = {
 
-    const process = new blockchain.Process(processAddress);
-    const keychain = new KeyChain();
-    let scenario;
+    getProject: function(processAddress, myPrivateKey) {
 
-    return Promise.all([
+        const process = new blockchain.Process(processAddress);
+        const keychain = new KeyChain();
+        let scenario;
 
-        process.getKeys()
-            .then(keys => keys.forEach(key => {
-                keychain.add(cert);
-            })),
-        process.getEvents(),
-        process.getScenario().then(addr => new blockchain.Scenario(addr)).then(fetched => scenario = fetched)
-    ])
-        .then(results => {
+        return Promise.all([
 
-            const decodedEvents = [];
+            process.getKeys()
+                .then(keys => keys.forEach(key => {
+                    keychain.add(cert);
+                })),
+            process.getEvents(),
+            process.getScenario().then(addr => new blockchain.Scenario(addr)).then(fetched => scenario = fetched)
+        ])
+            .then(results => {
 
-            results[1].forEach(function(item){
-                decodedEvents.push(JSON.parse(item));
+                const decodedEvents = [];
+
+                results[1].forEach(function(item){
+                    decodedEvents.push(JSON.parse(item));
+                });
+
+                return { events: decodedEvents, keys: keychain, scenario: results[2] };
+        })
+            .then(results => {
+                return project(results.events, results.scenario, encrypted => Promise.resolve(encrypted, keychain));
             });
+    },
+    getScenario: function(processAddress) {
+        const process = new blockchain.Process(processAddress);
 
-            return { events: decodedEvents, keys: keychain, scenario: results[2] };
-    })
-        .then(results => {
-            return project(results.events, results.scenario, encrypted => Promise.resolve(encrypted, keychain));
+        return process.getEvents().then(events => events).then(events => {
+            var decoded = JSON.parse(events[0]);
+            return process.getScenario()
+                .then(scenarioAddress => new blockchain.Scenario(scenarioAddress))
+                .then(scenario => scenario.getVersion(decoded.version));
         });
+
+
+    },
+    getEvents: function(processAddress) {
+        const process = new blockchain.Process(processAddress);
+        return process.getEvents();
+    }
 }
 
-module.exports = getProject;
+module.exports = main;
+//main.getEvents('0x48a4cc4afe9babe7e3391949549a1e4886c22ac1').then(data => { console.log(data); });
+//getProject('0x48a4cc4afe9babe7e3391949549a1e4886c22ac1', 'my-key').then((project) => { console.log(project); }).catch(err => console.error(err));
 
-//getProject('0x926eb19ecdf4a81116b8d27debd24044ffcae686', 'my-key').then((project) => { console.log(project); }).catch(err => console.error(err));
+//const process = new blockchain.Process('0x48a4cc4afe9babe7e3391949549a1e4886c22ac1');
 
-//const process = new blockchain.Process('0x926eb19ecdf4a81116b8d27debd24044ffcae686');
-//process.addKey(test_key_string).then(results => console.log(results));
 // events.forEach(item => {
 //      console.log(process.addEvent(JSON.stringify(item)));
 // });
