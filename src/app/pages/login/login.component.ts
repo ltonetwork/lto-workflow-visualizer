@@ -3,6 +3,8 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '@modules/auth';
 import { MdSnackBar } from '@angular/material';
 
+import { ProjectionJsService } from '@services/projection-js/projection-js.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,10 +18,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private snackbar: MdSnackBar
+    private snackbar: MdSnackBar,
+    private projection: ProjectionJsService
   ) { }
 
   ngOnInit() {
+
+
     this.emailControl = new FormControl('evgeny@legalthings.io', [Validators.required, Validators.email]);
     this.passwordControl = new FormControl('ZpiRit1985', [Validators.required]);
     this.form = new FormGroup({

@@ -25,6 +25,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { DetailsCardComponent } from './components/details-card/details-card.component';
 import { LocationHistoryCardComponent } from './components/location-history-card/location-history-card.component';
 
+import { ProjectionJsService } from './services/projection-js/projection-js.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { LocationHistoryCardComponent } from './components/location-history-card
     AppRoutingModule
   ],
   providers: [
-    ProcessesProviderService
+    ProcessesProviderService,
+    ProjectionJsService
   ],
   entryComponents: [LoginFormComponent],
   bootstrap: [AppComponent]
