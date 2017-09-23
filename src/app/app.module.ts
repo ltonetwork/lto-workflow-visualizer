@@ -3,7 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule,
-  MdDialogModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule, MdListModule
+  MdDialogModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule, MdListModule, MdTabsModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -48,6 +48,7 @@ import { ProjectionJsService } from './services/projection-js/projection-js.serv
     }),
     MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule,
     MdDialogModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule, MdListModule,
+    MdTabsModule,
     AuthModule,
     AppRoutingModule
   ],

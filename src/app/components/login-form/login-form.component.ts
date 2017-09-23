@@ -27,7 +27,7 @@ export class LoginFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.processIdControl = new FormControl('0x926eb19ecdf4a81116b8d27debd24044ffcae686', [Validators.required]);
+    this.processIdControl = new FormControl('0x48a4cc4afe9babe7e3391949549a1e4886c22ac1', [Validators.required]);
     this.keyControl = new FormControl('my-test-key', [Validators.required]);
     this.form = new FormGroup({
       process: this.processIdControl,

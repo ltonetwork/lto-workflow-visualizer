@@ -111,4 +111,8 @@ md-card {
     margin-top: 50px;
     margin-bottom: 32px;
   }
+
+  /deep/ .mat-tab-labels {
+    justify-content: center;
+  }
 }
