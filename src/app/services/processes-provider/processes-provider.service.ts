@@ -118,7 +118,6 @@ export class ProcessesProviderService {
       return this.process$;
     }
 
-    // return this.http.get('http://app.docarama.com/service/flow/processes/' + id)
     return Observable.of(DUMMY)
       .map((data: any) => {
         return data;
