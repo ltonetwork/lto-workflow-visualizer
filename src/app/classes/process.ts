@@ -65,5 +65,14 @@ export class Process {
       lat: parseFloat(data['locatie']['lat']),
       lng: parseFloat(data['locatie']['lng'])
     };
+
+    // Now we can build location history
+    const history = this.actions.filter(a => a.location).map((action) => {
+      return {
+        title: action.title,
+        location: action.location
+      };
+    });
+    this.item.locationsHistory = history;
   }
 }

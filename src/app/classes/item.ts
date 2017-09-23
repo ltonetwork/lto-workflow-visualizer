@@ -9,6 +9,14 @@ export class Item {
     description: string;
   }>>;
 
+  locationsHistory: Array<{
+    title: string;
+    location: {
+      lat: number;
+      lng: number;
+    }
+  }>;
+
   constructor(data: any) {
     Object.assign(this, data);
     this.title = this.type;

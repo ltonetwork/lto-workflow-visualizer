@@ -1,0 +1,18 @@
+md-card {
+  padding: 0;
+}
+
+md-card-content {
+  padding: 24px;
+}
+
+agm-map {
+  width: 100%;
+  height: 300px;
+}
+
+md-list-item {
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

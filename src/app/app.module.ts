@@ -3,7 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule,
-  MdDialogModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule
+  MdDialogModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule, MdListModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -23,6 +23,7 @@ import { LocationCardComponent } from './components/location-card/location-card.
 import { ChartCardComponent } from './components/chart-card/chart-card.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { DetailsCardComponent } from './components/details-card/details-card.component';
+import { LocationHistoryCardComponent } from './components/location-history-card/location-history-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DetailsCardComponent } from './components/details-card/details-card.com
     LocationCardComponent,
     ChartCardComponent,
     LoginFormComponent,
-    DetailsCardComponent
+    DetailsCardComponent,
+    LocationHistoryCardComponent
   ],
   imports: [
     BrowserAnimationsModule, ReactiveFormsModule,
@@ -43,7 +45,7 @@ import { DetailsCardComponent } from './components/details-card/details-card.com
       apiKey: 'AIzaSyCFDbSjZTlSv95RN8QK0w6b97NKFCNgNQY'
     }),
     MdToolbarModule, MdCardModule, MdIconModule, MdSlideToggleModule, MdButtonModule,
-    MdDialogModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule,
+    MdDialogModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule, MdListModule,
     AuthModule,
     AppRoutingModule
   ],

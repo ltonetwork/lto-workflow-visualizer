@@ -24,6 +24,10 @@ export class ProcessAction {
   description?: string;
   icon: string;
   actor_id: string;
+  location: {
+    lat: number;
+    lng: number;
+  };
 
   constructor(data: any) {
     Object.assign(this, data);
@@ -33,5 +37,12 @@ export class ProcessAction {
 
     const rnd = Math.floor(Math.random() * randomIcons.length);
     this.icon = randomIcons[rnd];
+
+    if (data['data'] && data['data']['locatie']) {
+      this.location = {
+        lat: parseFloat(data['data']['locatie']['lat']),
+        lng: parseFloat(data['data']['locatie']['lng'])
+      };
+    }
   }
 }
