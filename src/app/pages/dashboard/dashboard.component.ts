@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.processesProvider.load('59c284806f1978d3268b4568').take(1).subscribe(p => this.process = p);
+    this.processesProvider.load('59c26cd56f1978d0268b4567').take(1).subscribe(p => this.process = p);
     // if (!this.processesProvider.process$) {
     //   this.router.navigate(['']);
     //   return;

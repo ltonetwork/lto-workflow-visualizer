@@ -21,33 +21,37 @@ export class ProcessesProviderService {
     return this.http.get('http://app.docarama.com/service/flow/processes/' + id)
     .map((data: any) => {
       // Augment data with necessary info
-      data['item'] = {
-        title: 'Car',
-        description: 'Some description about car from officer which repossesed it. Or maybe some additional info which appered later.',
-        location: {
-          lat: 51.678418,
-          lng: 7.809007
-        },
-        information: [{
-          title: 'Merk',
-          description: 'BWM'
-        }, {
-          title: 'Mileage',
-          description: '47521km'
-        }, {
-          title: 'Fuel',
-          description: 'Benzine'
-        }, {
-          title: 'Estimated price',
-          description: '16000eur'
-        }]
-      };
+      if (!data['item']) {
+        data['item'] = {
+          title: 'Car',
+          description: 'Some description about car from officer which repossesed it. Or maybe some additional info which appered later.',
+          location: {
+            lat: 51.678418,
+            lng: 7.809007
+          },
+          information: [{
+            title: 'Merk',
+            description: 'BWM'
+          }, {
+            title: 'Mileage',
+            description: '47521km'
+          }, {
+            title: 'Fuel',
+            description: 'Benzine'
+          }, {
+            title: 'Estimated price',
+            description: '16000eur'
+          }]
+        };
+      }
 
-      data['finance'] = {
-        fine: 15000,
-        sellPrice: 16000,
-        saldo: -1000
-      };
+      if (!data['finance']) {
+        data['finance'] = {
+          fine: 15000,
+          sellPrice: 16000,
+          saldo: -1000
+        };
+      }
 
       return data;
     })
