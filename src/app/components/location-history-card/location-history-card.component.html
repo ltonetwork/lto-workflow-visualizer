@@ -12,7 +12,12 @@
     <md-list (mouseout)="dropSelectedLocation($event)">
       <md-list-item *ngFor="let i of item.locationsHistory" (mouseenter)="selectLocation(i)">
         <md-icon mdListIcon>my_location</md-icon>
-        <h3 mdLine>{{i.title}}</h3>
+        <h3 mdLine>
+          {{i.title}}
+          <ng-container *ngIf="i.location.lat === item.location.lat && i.location.lng === item.location.lng">
+            (current)
+          </ng-container>
+        </h3>
       </md-list-item>
     </md-list>
   </md-card-content>
