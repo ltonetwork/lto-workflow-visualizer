@@ -13,4 +13,11 @@ export class DetailsCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  capitalize(str: string): string {
+    if (!str) {
+      return 'No title';
+    }
+    return str[0].toUpperCase() + str.slice(1);
+  }
+
 }
