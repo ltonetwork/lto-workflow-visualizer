@@ -1,0 +1,15 @@
+<md-card>
+  <md-card-title>
+      {{item.title}}
+  </md-card-title>
+  <img [src]="item.foto" md-card-image>
+  <md-card-content>
+    <p>{{item.description}}</p>
+    <div class="information-row" fxLayout="row" *ngFor="let row of item.information">
+      <div class="information-item" *ngFor="let info of row">
+        <div class="title">{{info.title}}</div>
+        <div class="information">{{info.description}}</div>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>

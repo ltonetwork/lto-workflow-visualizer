@@ -22,6 +22,7 @@ import { ProcessesProviderService } from './services';
 import { LocationCardComponent } from './components/location-card/location-card.component';
 import { ChartCardComponent } from './components/chart-card/chart-card.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { DetailsCardComponent } from './components/details-card/details-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     TimelineComponent,
     LocationCardComponent,
     ChartCardComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    DetailsCardComponent
   ],
   imports: [
     BrowserAnimationsModule, ReactiveFormsModule,

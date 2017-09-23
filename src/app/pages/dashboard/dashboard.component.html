@@ -5,6 +5,7 @@
 <div class="content container" fxLayout="column" fxLayout.xs="column" fxLayoutGap="16px" *ngIf="process">
   <div fxLayout="row" fxLayoutGap="16px" class="container" fxLayout.xs="column">
     <div fxLayout="column" fxLayoutGap="16px" fxFlex="1 1 auto">
+      <app-details-card [item]="process.item"></app-details-card>
       <app-location-card [item]="process.item"></app-location-card>
       <app-chart-card [finance]="process.finance"></app-chart-card>
     </div>

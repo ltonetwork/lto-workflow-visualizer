@@ -3,6 +3,7 @@ export class Item {
   title: string;
   description: string;
   location: { lat: number; lng: number; };
+  foto: string;
   information: Array<Array<{
     tite: string;
     description: string;
