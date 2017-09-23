@@ -35,10 +35,9 @@
   </md-toolbar>
   <div class="content">
     <md-card>
-      <md-card-title>Source</md-card-title>
       <md-card-content>
         <md-tab-group headerPosition="center">
-          <md-tab label="Chain of events"><pre>{{process?.source | json}}</pre></md-tab>
+          <md-tab label="Chain of events"><pre>{{process?.source.events | json}}</pre></md-tab>
           <md-tab label="Scenario"><pre>{{process?.source | json}}</pre></md-tab>
           <md-tab label="Projectie"><pre>{{process?.source | json}}</pre></md-tab>
         </md-tab-group>

@@ -115,4 +115,11 @@ md-card {
   /deep/ .mat-tab-labels {
     justify-content: center;
   }
+  /deep/ .mat-ink-bar {
+    display: none;
+  }
+  /deep/ .mat-tab-label-active {
+    background: rgba(0,0,0,.15);
+    font-weight: bold;
+  }
 }
