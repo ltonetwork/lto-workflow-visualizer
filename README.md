@@ -1,5 +1,7 @@
 # Blockathon
 
+![screenshot-localhost_4200-2021 03 26-10_09_42](https://user-images.githubusercontent.com/100821/112609129-726ded00-8e1b-11eb-86f8-c7f61ddb2b3e.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 
 ## Development server
