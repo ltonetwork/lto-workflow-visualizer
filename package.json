@@ -27,7 +27,7 @@
     "@swimlane/ngx-charts": "^6.0.2",
     "chart.js": "^2.7.0",
     "core-js": "^2.4.1",
-    "d3": "^4.10.2",
+    "d3": "^7.6.1",
     "dottie": "^2.0.0",
     "ng2-charts": "^1.6.0",
     "ngx-cookie": "^1.0.0",
